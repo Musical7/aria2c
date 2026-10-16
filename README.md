@@ -1,6 +1,3 @@
-นี่คือเนื้อหาไฟล์ **`README.md`** แบบฉบับสมบูรณ์ มีครบทั้งคำอธิบาย วิธีติดตั้ง สคริปต์ตัวอย่าง คำสั่งดาวน์โหลดสปีดสูง และเทคนิคแก้ปัญหาที่เจอบ่อย สามารถคัดลอกข้อความทั้งหมดในกล่องด้านล่างนี้ไปวางทับในไฟล์ `README.md` ได้ทันทีครับ:
-
-```markdown
 # aria2c - High-Speed Command Line Downloader Guide
 
 คู่มือและตัวอย่างคำสั่งการใช้งาน **aria2c** โปรแกรมช่วยดาวน์โหลดไฟล์ผ่าน Command Line แบบเปิดหลาย Connection เพิ่มความเร็วเต็มสปีด รองรับโปรโตคอล HTTP, HTTPS, FTP, SFTP, BitTorrent และ Metalink
@@ -19,22 +16,27 @@
 
 ### Windows
 * **ผ่าน Winget (แนะนำ):**
-  ```powershell
-  winget install aria2.aria2
 
 ```
 
+powershell
+winget install aria2.aria2
+
+```
 * **ผ่าน Chocolatey:**
-```powershell
+
+```
+
+powershell
 choco install aria2
 
 ```
 
-
-
 ### Linux (Ubuntu/Debian)
 
-```bash
+```
+
+bash
 sudo apt update && sudo apt install aria2 -y
 
 ```
@@ -45,35 +47,45 @@ sudo apt update && sudo apt install aria2 -y
 
 ### 1. ดาวน์โหลดไฟล์ทั่วไป
 
-```powershell
+```
+
+powershell
 aria2c "[https://example.com/file.zip](https://example.com/file.zip)"
 
 ```
 
 ### 2. ดาวน์โหลดเร่งสปีดสูงสุด (16 Connections)
 
-```powershell
+```
+
+powershell
 aria2c -x16 -s16 "[https://example.com/file.zip](https://example.com/file.zip)"
 
 ```
 
 ### 3. ดาวน์โหลดพร้อมกำหนดโฟลเดอร์ปลายทาง
 
-```powershell
+```
+
+powershell
 aria2c -x16 -s16 -d "D:\Downloads" "[https://example.com/file.zip](https://example.com/file.zip)"
 
 ```
 
 ### 4. ดาวน์โหลดพร้อมเปลี่ยนชื่อไฟล์ปลายทาง
 
-```powershell
+```
+
+powershell
 aria2c -x16 -s16 -o "MyCustomName.zip" "[https://example.com/file.zip](https://example.com/file.zip)"
 
 ```
 
 ### 5. ดาวน์โหลดหลายไฟล์พร้อมกันจากรายการลิงก์ในไฟล์ข้อความ (links.txt)
 
-```powershell
+```
+
+powershell
 aria2c -x16 -s16 -i links.txt
 
 ```
@@ -82,7 +94,10 @@ aria2c -x16 -s16 -i links.txt
 
 ## 💻 ตัวอย่าง PowerShell Script (ดาวน์โหลดอัตโนมัติ)
 
-```powershell
+
+```
+
+powershell
 $Url = "[https://example.com/largefile.zip](https://example.com/largefile.zip)"
 $OutDir = "D:\Downloads"
 
@@ -95,7 +110,7 @@ aria2c -x16 -s16 -k1M --file-allocation=none -d $OutDir $Url
 ## ⚙️ สรุปตัวเลือกพารามิเตอร์สำคัญ (Options)
 
 | Option | คำอธิบาย |
-| --- | --- |
+| :--- | :--- |
 | `-x16` | จำนวน Connection สูงสุดต่อ 1 เซิร์ฟเวอร์ (ตั้งค่าได้สูงสุด 16) |
 | `-s16` | แบ่งไฟล์ออกเป็นกี่ส่วน (Segment) สำหรับการดาวน์โหลดแบบขนาน |
 | `-k1M` | ขนาดขั้นต่ำของแต่ละ Segment (ช่วยให้แบ่ง Segment ได้ถี่ขึ้น) |
@@ -103,14 +118,3 @@ aria2c -x16 -s16 -k1M --file-allocation=none -d $OutDir $Url
 | `-o` / `--out` | กำหนดชื่อไฟล์ปลายทางใหม่ |
 | `-i` / `--input-file` | โหลดรายการ URL ทั้งหมดจากไฟล์ข้อความที่ระบุ |
 | `--file-allocation=none` | ข้ามการจองพื้นที่ดิสก์ล่วงหน้า (ช่วยให้เริ่มดาวน์โหลดทันทีบน SSD/HDD) |
-
-```
-
----
-
-### 📝 ขั้นตอนการบันทึก:
-1. เลือกและลบเนื้อหาเก่าในไฟล์ `README.md` ทั้งหมด
-2. คัดลอกเนื้อหาด้านบนไปวาง
-3. บันทึกไฟล์ (`Ctrl + S` บน Codespaces/VS Code หรือกด **Commit changes...** บนเว็บ GitHub)
-
-```
